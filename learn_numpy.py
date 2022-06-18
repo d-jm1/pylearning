@@ -3,7 +3,7 @@
 import numpy as np
 from pytest import yield_fixture
 v = np.array(list(range(1,11))) #made a mistake cause someone named the file numpy.py...
-m = np.array([list(range(1,11)),list(range(10,0,-1))])
+m = np.array([list(range(1,11)),list(range(10,0,-1))],dtype=float) #dtype(int char float double complex虚数 bool)修改数据类型
 # print(v)
 # print("------------------------------------------------")
 # print(m)
