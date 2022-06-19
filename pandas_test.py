@@ -8,6 +8,15 @@ import pandas as pd
 cols_name = ["user1","user2","user3","user4","user5","user6","user7","user8","user9"]
 df = pd.read_csv('python/diabetes.csv',dtype=str) #emmmmmm 相对路径总是从编辑的文件路径出发...然后报错...
 df1 = pd.read_csv('python/diabetes.csv',index_col= 0,header=None,names= cols_name) #指定第x行第y列为index header ,name指定header名[不可同名，会报错]
+df3 = pd.read_csv("python/diabetes.csv")
+
+# print(df3.head())   #打印前五行了解大致情况
+# print(df3.dtypes)   #打印每个series类型了解大致情况
+# print(df3.shape)    #打印行列情况
+# print(df3.describe(include="all"))#真正的打印大致情况,对于series内的数据类型提供显示的统计数据不同 
+
+# the next随机数 -- Monte Carlo Method
+
 # print(df.head()) #打印头五行数据
 # print(df1)
 # print(type(df))                 #dateframe（整张表） 和 series（某一列） 数据类型 [i have already forgot the password of MySQL...]
