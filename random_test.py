@@ -1,25 +1,41 @@
 import random
 
 
+
+
 #开赌开赌,梭哈加卡^-^~~
 def give_an_number():
     number = random.randint(1,100)
-    print("-"*50)
+    # print("-"*5 )
     if number >=50:
-        print("you won the game!~~\nthe number is:{}\n\
-play more to be a rich man~~".format(number))
+#         print("you won the game!~~\nthe number is:{}\n\
+# play more to be a rich man~~".format(number))
         return True
     else:
-        print("you lost the game!\nthe number is:{}".format(number))
+        # print("you lost the game!\nthe number is:{}".format(number))
         return False
 
-x = 0
-while(x < 100):
-    result = give_an_number()
-    print(result)
-    x += 1    
+# x = 0
+# while(x < 100):
+#     result = give_an_number()
+#     print(result)
+#     x += 1    
+def a_fool(founds,wager,game_counts):
+    currently_game_counts = 0
+    while(currently_game_counts <= game_counts):
+        if give_an_number():
+            founds += wager
+        else:
+            founds -= wager
+            if founds < wager:
+                print("get out of the game.\ncause you do not have founds{} enough(赌可以，你女儿挺漂亮得嘛(>_<)!".format(founds))
+                return False
+        currently_game_counts += 1
+    print(founds)
+    return True
+while(a_fool(1000,100,100)):
+    pass
 
-# from more_itertools import one, random_combination
 
 # def random_walk_V2(n):
 #     x,y = 0,0
