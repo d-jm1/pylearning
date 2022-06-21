@@ -28,7 +28,7 @@ def a_fool(founds,wager,game_counts):
         else:
             founds -= wager
             if founds < wager:
-                print("get out of the game.\ncause you do not have founds{} enough(赌可以，你女儿挺漂亮得嘛(>_<)!".format(founds))
+                print("get out of the game.\ncause you do not have founds(${}) enough(赌可以，你女儿挺漂亮得嘛(>_<)!".format(founds))
                 return False
         currently_game_counts += 1
     print(founds)
