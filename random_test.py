@@ -1,3 +1,4 @@
+from matplotlib import pyplot as plt
 import random
 
 
@@ -7,7 +8,7 @@ import random
 def give_an_number():
     number = random.randint(1,100)
     # print("-"*5 )
-    if number >=50:
+    if number >=51:
 #         print("you won the game!~~\nthe number is:{}\n\
 # play more to be a rich man~~".format(number))
         return True
@@ -18,23 +19,39 @@ def give_an_number():
 # x = 0
 # while(x < 100):
 #     result = give_an_number()
-#     print(result)
+#     print(result)plt.xlabel("counts")
+    plt.ylabel("founds")
+    plt.title("there are nothing to say!")
+    plt.show()
 #     x += 1    
 def a_fool(founds,wager,game_counts):
     currently_game_counts = 0
+    x = []
+    y = []
+
     while(currently_game_counts <= game_counts):
         if give_an_number():
             founds += wager
         else:
             founds -= wager
-            if founds < wager:
-                print("get out of the game.\ncause you do not have founds(${}) enough(赌可以，你女儿挺漂亮得嘛(>_<)!".format(founds))
-                return False
+            # if founds < wager:
+            #     print("get out of the game.\ncause you do not have founds(${}) enough,赌可以,你女儿挺漂亮得嘛(>_<)!".format(founds))
+            #     return False
+        x.append(currently_game_counts)
+        y.append(founds)
         currently_game_counts += 1
+    plt.plot(x,y)
     print(founds)
     return True
-while(a_fool(1000,100,100)):
-    pass
+n = 0
+while(n < 100):
+    a_fool(100000,1000,10000)
+    n += 1
+plt.xlabel("counts")
+plt.ylabel("founds")
+plt.title("there are nothing to say!")
+plt.show()
+
 
 
 # def random_walk_V2(n):
