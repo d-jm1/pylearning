@@ -16,41 +16,91 @@ def give_an_number():
         # print("you lost the game!\nthe number is:{}".format(number))
         return False
 
-# x = 0
-# while(x < 100):
-#     result = give_an_number()
-#     print(result)plt.xlabel("counts")
-    plt.ylabel("founds")
-    plt.title("there are nothing to say!")
-    plt.show()
-#     x += 1    
-def a_fool(founds,wager,game_counts):
-    currently_game_counts = 0
+def a_smart_fool(founds,initial_wager,game_countes):
+    wager = initial_wager
     x = []
     y = []
+    game_current_countes = 0
+    game_status = "win"
+    # game_status_wager = initial_wager
 
-    while(currently_game_counts <= game_counts):
-        if give_an_number():
-            founds += wager
-        else:
-            founds -= wager
-            # if founds < wager:
-            #     print("get out of the game.\ncause you do not have founds(${}) enough,赌可以,你女儿挺漂亮得嘛(>_<)!".format(founds))
-            #     return False
-        x.append(currently_game_counts)
-        y.append(founds)
-        currently_game_counts += 1
+    while(game_current_countes < game_countes):
+        if game_status == "win":
+            if give_an_number():
+                founds += wager
+                game_status == "win"
+            else:
+                founds -= wager
+                game_status == "loss"
+                wager *= 2
+                if founds < wager:
+                    return False
+        elif(game_status == "loss"):
+            if give_an_number():
+                founds += wager
+                game_status = "win"
+            else:
+                founds -= wager
+                game_status = "loss"
+                wager = initial_wager
+                if founds < wager:
+                    return False
+
+        x.append(game_current_countes)
+        y.append(founds)      
+        game_current_countes += 1
+    
     plt.plot(x,y)
-    print(founds)
+
     return True
-n = 0
-while(n < 100):
-    a_fool(100000,1000,10000)
-    n += 1
+
+i = 0
+while(i < 100):
+    a_smart_fool(10000,10,20)
+    i += 1
 plt.xlabel("counts")
 plt.ylabel("founds")
-plt.title("there are nothing to say!")
+plt.title("it is a smart fool!!!")
 plt.show()
+
+            
+
+
+# # x = 0
+# # while(x < 100):
+# #     result = give_an_number()
+# #     print(result)plt.xlabel("counts")
+#     plt.ylabel("founds")
+#     plt.title("there are nothing to say!")
+#     plt.show()
+# #     x += 1    
+# def a_fool(founds,wager,game_counts):
+#     currently_game_counts = 0
+#     x = []
+#     y = []
+
+#     while(currently_game_counts <= game_counts):
+#         if give_an_number():
+#             founds += wager
+#         else:
+#             founds -= wager
+#             # if founds < wager:
+#             #     print("get out of the game.\ncause you do not have founds(${}) enough,赌可以,你女儿挺漂亮得嘛(>_<)!".format(founds))
+#             #     return False
+#         x.append(currently_game_counts)
+#         y.append(founds)
+#         currently_game_counts += 1
+#     plt.plot(x,y)
+#     print(founds)
+#     return True
+# n = 0
+# while(n < 100):
+#     a_fool(100000,1000,10000)
+#     n += 1
+# plt.xlabel("counts")
+# plt.ylabel("founds")
+# plt.title("there are nothing to say!")
+# plt.show()
 
 
 
